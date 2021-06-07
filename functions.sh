@@ -1,14 +1,7 @@
 ##!/usr/bin/env bash
 #set -euo pipefail
 #
-unlock_phone()
-{
-   adb shell input keyevent 26
-   adb shell input keyevent 82
-   sleep .3
-   adb shell input text 789329
-   adb shell input keyevent 66
-}
+
 
 
 # get service mode
@@ -110,6 +103,12 @@ press_9()
   sleep .1
 }
 
+is_screen_on()
+{
+  adb shell dumpsys vr | awk -F'=' '/mScreenOn/{print $2}'
+}
+
+
 service_mode()
 {
     press_home
@@ -122,4 +121,42 @@ service_mode()
     press_1
     press_1
     press_pound
+}
+
+press_power()
+{
+   adb shell input keyevent 26
+}
+
+press_enter()
+{
+   adb shell input keyevent 66
+   sleep .1
+}
+
+press_menu()
+{
+   adb shell input keyevent 82
+   sleep .1
+}
+
+swipe_up()
+{
+  adb shell input swipe 300 300 500 1000 
+}
+
+swipe_down()
+{
+  adb shell input swipe 500 1000 300 300 
+}
+
+unlock_phone()
+{
+  # press power button
+  if [[ "$(is_screen_on)" == "false" ]] ; then
+    press_power
+  fi
+  swipe_up
+  adb shell input text 789329
+  press_enter
 }
