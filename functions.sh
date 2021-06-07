@@ -160,3 +160,41 @@ unlock_phone()
   adb shell input text 789329
   press_enter
 }
+
+speed_test()
+{
+  #Start speed test
+  adb shell monkey -p org.zwanoo.android.speedtest 1 > /dev/null 2>&1
+  sleep 5
+  
+  #Tap go button
+  adb shell input tap 516 947
+  sleep $MAX_WAIT
+  
+  filename=$(date "+speedtest_%Y%m%d-%H%M.png")
+  adb exec-out screencap -p > ./results/${filename}
+  
+  #Tap share button
+  adb shell input tap 1001 128
+  sleep 3
+  
+  
+  # tap gmail
+  adb shell input tap 132 2060
+  sleep 1
+  
+  adb shell input text "wei.w.wang@gmail.com"
+  sleep 1
+  
+  adb shell input keyevent 66
+  sleep 1
+  
+  adb shell input tap 881 137
+  sleep 1
+  
+  adb shell input tap 70 105
+  sleep 2
+  
+  adb shell am force-stop org.zwanoo.android.speedtest
+
+}
