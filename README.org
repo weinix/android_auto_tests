@@ -21,6 +21,10 @@ pip install pytesseract
 - sudo apt install tesseract-ocr libtesseract-dev
 * How to use
 - ~speedtest.sh~ as an example
+- run speed tests with 5 seconds breaks
+  #+begin_src bash
+while true; do bash -x ./speedtest.sh; sleep 5; done
+  #+end_src
 * Tips for developers
 ** How to get (x,y) coordinates
 - use ~adb shell getevents -tl~ and look for (ABS_MT_POSITION_X, ABS_MT_POSITION_Y)
