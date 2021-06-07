@@ -1,5 +1,7 @@
 #+TITLE: Readme
 * About this project
+This project is to provide some ideas on how to do Android test automation with adb tools.
+
 * Dependencies
 ** Get phone ready for automation
 - Enable develop option(system/about phone/version, tap 8 times)
