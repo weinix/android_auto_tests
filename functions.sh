@@ -111,16 +111,21 @@ is_screen_on()
 
 service_mode()
 {
-    press_home
-    press_phone
-    press_keypad
-    press_star
-    press_pound
-    press_0
-    press_0
-    press_1
-    press_1
-    press_pound
+  press_home
+  press_phone
+  press_keypad
+  press_star
+  press_pound
+  press_0
+  press_0
+  press_1
+  press_1
+  press_pound
+
+  filename=$(date "+svcmode_%Y%m%d-%H%M.png")
+  adb exec-out screencap -p > ./results/${filename}
+  
+  ./img2txt.py ./results/${filename} | grep .
 }
 
 press_power()
