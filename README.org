@@ -1,6 +1,6 @@
 #+TITLE: Readme
 * About this project
-This project is to provide some ideas on how to do Android test automation with adb tools.
+This project provides some ideas on how to do Android test automation with adb tools.
 
 * Dependencies
 ** Get phone ready for automation
