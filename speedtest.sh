@@ -12,9 +12,9 @@ unlock_phone
 service_mode
 
 filename=$(date "+svcmode_%Y%m%d-%H%M.png")
-adb exec-out screencap -p > $filename
+adb exec-out screencap -p > ./results/${filename}
 
-./img2txt.py $filename | grep .
+./img2txt.py ./results/${filename} | grep .
 
 #Start speed test
 adb shell monkey -p org.zwanoo.android.speedtest 1 2>&1 > /dev/null
@@ -25,7 +25,7 @@ adb shell input tap 516 947
 sleep $MAX_WAIT
 
 filename=$(date "+speedtest_%Y%m%d-%H%M.png")
-adb exec-out screencap -p > $filename
+adb exec-out screencap -p > ./results/${filename}
 
 #Tap share button
 adb shell input tap 1001 128
