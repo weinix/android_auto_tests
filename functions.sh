@@ -2,6 +2,7 @@
 #set -euo pipefail
 #
 
+MAX_WAIT=40
 
 
 # get service mode

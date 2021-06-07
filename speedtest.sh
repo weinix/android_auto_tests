@@ -3,7 +3,6 @@
 source functions.sh
 set -euo pipefail
 
-MAX_WAIT=60
 
 # get service mode
 
