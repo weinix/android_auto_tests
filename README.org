@@ -1,0 +1,23 @@
+#+TITLE: Readme
+* About this project
+* Dependencies
+** Get phone ready for automation
+- Enable develop option(system/about phone/version, tap 8 times)
+- Enable USB mode under develop options
+- Connect phone to computer and test adb shell is working
+** scrcpy
+*** Mac
+- brew install scrcpy
+- brew install --cask android-platform-tools
+
+*** Linux
+- sudo apt install scrcpy
+
+** Opencv pip
+pip install opencv-python
+pip install pytesseract
+** Opencv
+*** linux
+- sudo apt install tesseract-ocr libtesseract-dev
+* How to use
+- speedtest.sh as an example
