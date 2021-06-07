@@ -17,7 +17,7 @@ adb exec-out screencap -p > ./results/${filename}
 ./img2txt.py ./results/${filename} | grep .
 
 #Start speed test
-adb shell monkey -p org.zwanoo.android.speedtest 1 2>&1 > /dev/null
+adb shell monkey -p org.zwanoo.android.speedtest 1 > /dev/null 2>&1
 sleep 5
 
 #Tap go button
