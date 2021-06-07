@@ -27,6 +27,13 @@ press_phone()
   sleep .1
 }
 
+press_keypad()
+{
+  adb shell input tap 196 2193
+  sleep .1
+}
+
+
 #Press *
 press_star()
 {
@@ -107,6 +114,7 @@ service_mode()
 {
     press_home
     press_phone
+    press_keypad
     press_star
     press_pound
     press_0
