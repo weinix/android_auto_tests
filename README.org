@@ -20,18 +20,19 @@ pip install pytesseract
 *** linux
 - sudo apt install tesseract-ocr libtesseract-dev
 * How to use
-- speedtest.sh as an example
+- ~speedtest.sh~ as an example
 * Tips for develops
 ** How to get (x,y) coordinates
-- use adb shell getevents -tl and look for (ABS_MT_POSITION_X, ABS_MT_POSITION_Y)
+- use ~adb shell getevents -tl~ and look for (ABS_MT_POSITION_X, ABS_MT_POSITION_Y)
 - Convert (ABS_MT_POSITION_X, ABS_MT_POSITION_Y) to (x,y)
-  - Find out phone resolution with `adb shell wm size`, I have (1080,2400)
+  - Find out phone resolution with ~adb shell wm size~, I have (1080,2400)
   - Find max ABS_MT_POSTION_X, ABS_MT_POSTION_Y with below command
-    ```
+   #+begin_src bash
     $ adb shell getevent -il /dev/input/event7 | grep POSI
                 ABS_MT_POSITION_X     : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
                 ABS_MT_POSITION_Y     : value 0, min 0, max 4095, fuzz 0, flat 0, resolution 0
-    ```
+
+   #+end_src
 - Formula to calculate (x,y), with
   x=hex2dec(ABS_MT_POSITION_X)*1080/4095
   y=hex2dec(ABS_MT_POSITION_Y)*2400/4095
@@ -39,6 +40,6 @@ pip install pytesseract
 - Use a google sheet to help the calculation
  [[file:README.org_imgs/20210607_160912_hys1io.png]]
 ** How to find out what dumpsys has certain needed information.(To avoid dumpsys all)
-```
+#+begin_src bash
 for i in $(adb shell dumpsys -l); do echo $i; echo "===================="; adb shell dumpsys $i | grep mScreenOn; done
-```
+#+end_src
